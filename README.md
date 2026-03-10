@@ -1,4 +1,4 @@
-# Pytutor Code Visualizer
+# PyTutor Visualizer
 
 A lightweight web-based code visualizer inspired by [Python Tutor](https://pythontutor.com/).  
 This project lets users write code in a CodeMirror-powered editor, then visualize the code execution step-by-step using Python Tutor’s official visualization tool.
