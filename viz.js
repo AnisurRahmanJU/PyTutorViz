@@ -24,7 +24,6 @@ return "https://pythontutor.com/javascript.html";
 if(lang==="python")
 return "https://pythontutor.com/visualize.html";
 
-return "https://pythontutor.com/visualize.html";
 }
 
 function createVisualizerIframe(container,code){
@@ -55,3 +54,4 @@ createVisualizerIframe
 };
 
 })();
+
