@@ -21,7 +21,7 @@ This project lets users write code in a CodeMirror-powered editor, then visualiz
 
 1. **Write code:** User writes or edits C code in the editor on `index.html`.
 2. **Visualize:** Clicking **Visualize Code** sends the code as a URL parameter to `visualizer.html`.
-3. **View execution:** `visualizer.html` loads the Python Tutor visualization page inside an iframe, passing the user’s code.
+3. **View execution:** `viz.js` loads the Python Tutor visualization page inside an iframe, passing the user’s code.
 4. **Interact:** User can interact with the embedded Python Tutor interface to step through execution.
 
 ---
@@ -32,7 +32,7 @@ This project lets users write code in a CodeMirror-powered editor, then visualiz
 - Write or paste your code in the editor.
 - Click **Visualize Code** to open `visualizer.html` with your code loaded.
 - Inside the embedded Python Tutor iframe, manually click **Visualize Execution** if visualization does not start automatically.
-- Step through your program’s execution using Python Tutor’s interface.
+- `viz.js` to Step through your program’s execution using Python Tutor’s interface.
 
 ---
 
