@@ -12,8 +12,7 @@ This project lets users write code in a CodeMirror-powered editor, then visualiz
 - Seamless transition between code input page (`index.html`) and visualization page (`visualizer.html`)
 - URL encoding of code for easy sharing and bookmarking
 - Embedded Python Tutor visualization via iframe using `viz.js` for direct execution output display
-- User prompt to manually trigger visualization inside iframe due to browser security restrictions
-- Modular JavaScript code (`visualizer.js`) managing editor, iframe loading, and navigation
+- User prompt to manually trigger visualization inside iframe due to browser security restrictions.
 
 ---
 
