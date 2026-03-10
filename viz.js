@@ -1,37 +1,57 @@
-/**
- * viz.js
- * JS module to create and control iframe in index.html
- */
-
 const Viz = (() => {
-  function encodeCode(code) {
-    return encodeURIComponent(code)
-      .replace(/'/g, '%27')
-      .replace(/"/g, '%22')
-      .replace(/\n/g, '%0A');
-  }
 
-  function createVisualizerIframe(container, code) {
-    if (!container) {
-      console.error('Viz.createVisualizerIframe: container not found');
-      return;
-    }
-    container.innerHTML = '';
+function encodeCode(code){
+return encodeURIComponent(code)
+.replace(/'/g,"%27")
+.replace(/"/g,"%22")
+.replace(/\n/g,"%0A");
+}
 
-    const url = `visualizer.html?code=${encodeCode(code)}`;
+function getTutorURL(lang){
 
-    const iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.title = 'PythonTutor Visualizer';
-    iframe.setAttribute('loading', 'lazy');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
+if(lang==="c")
+return "https://pythontutor.com/c.html";
 
-    container.appendChild(iframe);
-  }
+if(lang==="cpp")
+return "https://pythontutor.com/cpp.html";
 
-  return {
-    createVisualizerIframe,
-  };
+if(lang==="java")
+return "https://pythontutor.com/java.html";
+
+if(lang==="javascript")
+return "https://pythontutor.com/javascript.html";
+
+if(lang==="python")
+return "https://pythontutor.com/visualize.html";
+
+return "https://pythontutor.com/visualize.html";
+}
+
+function createVisualizerIframe(container,code){
+
+const lang=document.getElementById("language-select").value;
+
+container.innerHTML="";
+
+const iframe=document.createElement("iframe");
+
+iframe.style.width="100%";
+iframe.style.height="100%";
+iframe.style.border="none";
+
+const baseURL=getTutorURL(lang);
+
+iframe.src=
+baseURL+
+"#code="+encodeCode(code)+
+"&mode=edit";
+
+container.appendChild(iframe);
+
+}
+
+return{
+createVisualizerIframe
+};
+
 })();
