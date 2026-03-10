@@ -1,39 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>PythonTutor Visualizer</title>
-  <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; width: 100%;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff; color: #333;
-      overflow: hidden;
-    }
-    #pt-iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-      display: block;
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PyTutor Visualizer</title>
+
+<style>
+
+html,body{
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:Segoe UI;
+}
+
+#pt{
+width:100%;
+height:100vh;
+border:none;
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <iframe id="pt-iframe" src=""></iframe>
+<iframe id="pt"></iframe>
 
-  <script src="parser.js"></script>
-  <script>
-    const code = Parser.getCodeFromURL();
-    const ptIframe = document.getElementById('pt-iframe');
+<script src="parser.js"></script>
 
-    if (code) {
-      ptIframe.src = `https://pythontutor.com/visualize.html#code=${Parser.encodeCode(code)}&lang=c&mode=display`;
-    } else {
-      ptIframe.src = 'about:blank';
-    }
-  </script>
+<script>
+
+const code = Parser.getCodeFromURL();
+const lang = Parser.getLangFromURL();
+
+const iframe = document.getElementById("pt");
+
+let baseURL = "";
+
+/* language mapping */
+
+if(lang === "c")
+baseURL = "https://pythontutor.com/c.html";
+
+else if(lang === "cpp")
+baseURL = "https://pythontutor.com/cpp.html";
+
+else if(lang === "javascript")
+baseURL = "https://pythontutor.com/javascript.html";
+
+else if(lang === "java")
+baseURL = "https://pythontutor.com/java.html";
+
+else if(lang === "python")
+baseURL = "https://pythontutor.com/visualize.html";
+
+/* final url */
+
+iframe.src =
+baseURL +
+"#code=" +
+Parser.encodeCode(code) +
+"&mode=edit";
+
+</script>
+
 </body>
 </html>
-
-
